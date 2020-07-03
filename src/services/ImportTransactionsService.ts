@@ -22,7 +22,8 @@ class ImportTransactionsService {
     const transactions: CsvTransaction[] = [];
     const categories: string[] = [];
     const filePath = path.join(uploadConfig.directory, importFile);
-    const parseCSV = fs.createReadStream(filePath)
+    const parseCSV = fs
+      .createReadStream(filePath)
       .pipe(csv())
       .on('data', async data => {
         const { title, type, value, category } = data;
